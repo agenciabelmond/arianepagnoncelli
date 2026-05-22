@@ -138,7 +138,7 @@ export function About() {
               <div className="absolute left-0 top-0 bottom-0 w-[2px] rounded-full bg-gradient-to-b from-[#D8B8B1] via-[#A8B0A3] to-transparent" />
 
               <p className="italic text-[1rem] md:text-[1.5rem] leading-[1.35] text-[#5A463A]">
-                Cada paciente é uma história única que merece ser ouvida com atenção.
+                Cada paciente tem uma história única que merece ser ouvida com atenção.
               </p>
             </div>
           </div>
