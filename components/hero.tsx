@@ -53,7 +53,7 @@ export default function Hero() {
         backgroundColor: "rgba(179,155,143,0.15)",
       }}
     >
-      {/* BACKGROUND ATMOSPHERIC LAYERS */}
+      {/* BACKGROUND GRADIENTS */}
       <div
         className="absolute inset-0"
         style={{
@@ -64,10 +64,65 @@ export default function Hero() {
         }}
       />
 
-      {/* BLUSH GLOW */}
+      {/* FLOATING DOTS */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          style={{
+            position: "absolute",
+            top: "18%",
+            left: "12%",
+            width: "6px",
+            height: "6px",
+            borderRadius: "999px",
+            background: colors.sage,
+            opacity: 0.4,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "22%",
+            right: "18%",
+            width: "4px",
+            height: "4px",
+            borderRadius: "999px",
+            background: colors.taupe,
+            opacity: 0.35,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "45%",
+            right: "10%",
+            width: "8px",
+            height: "8px",
+            borderRadius: "999px",
+            background: colors.blush,
+            opacity: 0.25,
+          }}
+        />
+      </div>
+
+      {/* BLUSH + SAGE GLOW */}
       <div
         className="absolute top-1/3 left-1/4 w-[520px] h-[520px] rounded-full blur-[180px]"
-        style={{ backgroundColor: "rgba(216,184,177,0.18)" }}
+        style={{
+          background: `
+            radial-gradient(circle, rgba(168,176,163,0.18), rgba(216,184,177,0.12))
+          `,
+        }}
+      />
+
+      {/* GRAIN TEXTURE */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "url('https://www.transparenttextures.com/patterns/paper-fibers.png')",
+          opacity: 0.08,
+          mixBlendMode: "multiply",
+        }}
       />
 
       {/* CONTENT */}
@@ -79,6 +134,19 @@ export default function Hero() {
 
           {/* LEFT */}
           <div className="w-full md:w-[52%] flex flex-col items-start">
+
+            {/* BRAND LABEL */}
+            <div
+              data-animate
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                marginBottom: "8px",
+              }}
+            >
+           
+            </div>
 
             <p
               data-animate
@@ -119,13 +187,15 @@ export default function Hero() {
               </span>
             </h1>
 
+            {/* ACCENT LINE */}
             <div
               data-animate
               style={{
-                width: "60px",
+                width: "70px",
                 height: "1px",
-                backgroundColor: colors.taupe,
                 margin: "18px 0",
+                background: `linear-gradient(90deg, ${colors.taupe}, ${colors.sage})`,
+                opacity: 0.9,
               }}
             />
 
@@ -142,19 +212,20 @@ export default function Hero() {
               Saúde em equilíbrio
             </p>
 
-<p
-  data-animate
-  style={{
-    fontFamily: "'Jost', sans-serif",
-    fontSize: "15px",
-    lineHeight: 1.85,
-    color: "rgba(90,78,72,0.92)", // mais escuro e sofisticado
-    marginTop: "14px",
-    maxWidth: "560px",
-  }}
->
-  Atendimento endocrinológico especializado em equilíbrio hormonal, saúde metabólica e longevidade — com ciência atualizada, tecnologia de excelência e cuidado humano altamente individualizado.
-</p>
+            <p
+              data-animate
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "15px",
+                lineHeight: 1.85,
+                color: "rgba(90,78,72,0.92)",
+                marginTop: "14px",
+                maxWidth: "560px",
+              }}
+            >
+              Atendimento endocrinológico especializado em equilíbrio hormonal, saúde metabólica e longevidade — com ciência atualizada, tecnologia de excelência e cuidado humano altamente individualizado.
+            </p>
+
             {/* BUTTONS */}
             <div
               data-animate
@@ -164,8 +235,6 @@ export default function Hero() {
                 className="
                   w-full sm:w-auto
                   max-w-[320px]
-                  sm:max-w-none
-                  relative overflow-hidden
                   transition-all duration-300
                   hover:scale-[1.04]
                   hover:shadow-2xl
@@ -188,7 +257,8 @@ export default function Hero() {
                 className="
                   w-full sm:w-auto
                   max-w-[320px]
-                  sm:max-w-none
+                  transition-all duration-300
+                  hover:scale-[1.03]
                 "
                 style={{
                   border: `1px solid ${colors.taupe}`,
@@ -198,6 +268,17 @@ export default function Hero() {
                   background: "rgba(255,255,255,0.25)",
                   backdropFilter: "blur(10px)",
                   fontFamily: "'Jost', sans-serif",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor =
+                    colors.sage;
+                  (e.currentTarget as HTMLElement).style.boxShadow =
+                    "0 10px 30px rgba(168,176,163,0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor =
+                    colors.taupe;
+                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
                 }}
               >
                 Saiba mais
@@ -213,8 +294,13 @@ export default function Hero() {
             <div className="relative">
 
               <div
-                className="absolute -inset-5 rounded-[40px] blur-[70px]"
-                style={{ backgroundColor: "rgba(216,184,177,0.16)" }}
+                className="absolute -inset-6 rounded-[40px] blur-[80px]"
+                style={{
+                  background: `
+                    radial-gradient(circle at top, rgba(168,176,163,0.20), transparent 60%),
+                    radial-gradient(circle at bottom, rgba(216,184,177,0.14), transparent 60%)
+                  `,
+                }}
               />
 
               <div
@@ -251,36 +337,65 @@ export default function Hero() {
             <div
               key={i}
               style={{
-                backgroundColor: "rgba(255,255,255,0.25)",
+                position: "relative",
+                backgroundColor: "rgba(255,255,255,0.18)",
+                backdropFilter: "blur(14px)",
                 padding: "28px 26px 34px 26px",
-                backdropFilter: "blur(10px)",
               }}
             >
-              <h3
+              {/* DEPTH LAYER */}
+              <div
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  color: colors.brown,
-                  marginBottom: "10px",
-                  fontWeight: 600,
+                  position: "absolute",
+                  inset: "6px",
+                  borderRadius: "18px",
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.12))",
+                  zIndex: 0,
                 }}
-              >
-                {item.title}
-              </h3>
+              />
 
-              <p
+              {/* SAGE SIDE LINE */}
+              <div
                 style={{
-                  fontFamily: "'Jost', sans-serif",
-                  fontSize: "13px",
-                  lineHeight: 1.75,
-                  color: "rgba(123,110,102,0.85)",
+                  position: "absolute",
+                  left: 0,
+                  top: "18px",
+                  bottom: "18px",
+                  width: "2px",
+                  background: colors.sage,
+                  opacity: 0.6,
+                  borderRadius: "2px",
                 }}
-              >
-                {item.desc}
-              </p>
+              />
+
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <h3
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    color: colors.brown,
+                    marginBottom: "12px",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                  }}
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "15px",
+                    lineHeight: 1.8,
+                    color: "rgba(123,110,102,0.85)",
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
-
       </section>
     </main>
   );
