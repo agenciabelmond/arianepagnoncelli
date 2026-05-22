@@ -23,7 +23,6 @@ export function About() {
 
       {/* Ambient blobs */}
       <div className="absolute top-[-120px] right-[-100px] w-[360px] h-[360px] rounded-full blur-[140px] bg-[#D8B8B1]/20 pointer-events-none" />
-
       <div className="absolute bottom-[-80px] left-[-80px] w-[240px] h-[240px] rounded-full blur-[120px] bg-[#A8B0A3]/20 pointer-events-none" />
 
       {/* Top line */}
@@ -55,8 +54,9 @@ export function About() {
             </h2>
           </div>
 
+          {/* SOMENTE MOBILE */}
           <p
-            className="text-[1rem] leading-[1.7] max-w-[38ch] md:text-right text-[#F4F1EC]/85"
+            className="text-[1rem] leading-[1.7] max-w-[38ch] text-[#F4F1EC]/85 md:hidden"
             style={{ fontFamily: "var(--font-jost, sans-serif)" }}
           >
             Atendimento médico humanizado com foco em equilíbrio hormonal,
