@@ -73,7 +73,7 @@ export function Footer() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com/"
+              href="https://instagram.com/draarianepagnoncelli"
               target="_blank"
               className="group inline-flex items-center gap-3 rounded-full border px-6 py-4 transition hover:scale-[1.02]"
               style={{
@@ -96,7 +96,7 @@ export function Footer() {
                   Instagram Oficial
                 </p>
                 <p style={{ color: colors.brownSoft }}>
-                  @dra.arianepagnoncelli
+                  @draarianepagnoncelli
                 </p>
               </div>
             </a>
@@ -151,7 +151,7 @@ export function Footer() {
             <div className="space-y-5">
 
               <a
-                href="tel:+5551999999999"
+                href="tel:(21) 97264-6121"
                 className="flex gap-4 p-4 border"
                 style={{
                   borderColor: `${colors.taupeFendi}25`,
@@ -164,7 +164,7 @@ export function Footer() {
                     WhatsApp
                   </p>
                   <p style={{ color: colors.brownSoft }}>
-                    (51) 99999-9999
+                    (21) 97264-6121
                   </p>
                 </div>
               </a>
@@ -178,8 +178,8 @@ export function Footer() {
               >
                 <Clock className="w-4 h-4" style={{ color: colors.sage }} />
                 <div style={{ color: colors.brownSoft }} className="text-sm leading-relaxed">
-                  <p>Seg–Sex: 08h às 18h</p>
-                  <p>Sáb: 08h às 12h</p>
+                  <p>Segunda a Sexta: 08h às 18h</p>
+                  <p>Sábado: 08h às 12h</p>
                 </div>
               </div>
 
@@ -199,9 +199,7 @@ export function Footer() {
                   <p style={{ color: "rgba(95,82,76,0.75)" }}>
                     Rio de Janeiro / RJ
                   </p>
-                  <p className="text-xs mt-1" style={{ color: "rgba(95,82,76,0.6)" }}>
-                    Atendimento presencial e telemedicina
-                  </p>
+                 
                 </div>
               </div>
 
@@ -219,10 +217,7 @@ export function Footer() {
         >
           <p>© 2026 Dra. Ariane Pagnoncelli</p>
 
-          <div className="flex gap-4">
-            <span>CRM-RJ 00000</span>
-            <span>RQE 00000</span>
-          </div>
+          
         </div>
 
       </div>

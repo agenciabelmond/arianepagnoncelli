@@ -169,7 +169,7 @@ export function Contact() {
                 <p style={{ color: colors.brownSoft }}>Clínica Médica</p>
 
                 <p className="text-sm" style={{ color: colors.brownSoft }}>
-                  Rua Senador Dantas, 20 — Centro
+                  Rua Senador Dantas, 20 — salas 501 a 503 — Centro
                   <br />
                   Rio de Janeiro / RJ
                 </p>

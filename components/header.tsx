@@ -20,11 +20,14 @@ export function Header() {
     { label: "Contato", href: "#contato" },
   ];
 
+  const whatsappLink =
+    "https://wa.me/555521972646121?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es!";
+
   return (
     <header
       className="relative z-50 backdrop-blur-md border-b"
       style={{
-        backgroundColor: "rgba(179,155,143,0.18)", // taupe leve
+        backgroundColor: "rgba(179,155,143,0.18)",
         borderColor: "rgba(123,110,102,0.25)",
       }}
     >
@@ -55,7 +58,7 @@ export function Header() {
                   color: colors.brown,
                 }}
               >
-                <span className="relative">
+                <span className="relative group">
                   {item.label}
                   <span
                     className="absolute left-0 -bottom-1 h-px w-0 transition-all duration-500 group-hover:w-full"
@@ -85,12 +88,14 @@ export function Header() {
             <Instagram size={14} strokeWidth={1.8} />
           </a>
 
-          {/* BUTTON */}
+          {/* BUTTON WHATSAPP */}
           <a
-            href="#contato"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[9px] font-semibold tracking-[0.22em] uppercase px-6 py-2.5 rounded-full transition-all duration-500"
             style={{
-              backgroundColor: colors.blush, // destaque real agora
+              backgroundColor: colors.blush,
               color: "#fff",
               boxShadow: "0 12px 30px rgba(216,184,177,0.35)",
             }}
@@ -127,7 +132,7 @@ export function Header() {
             }}
           >
             <span
-              className={`w-4 h-[1.5px] rounded-full transition-all duration-300`}
+              className="w-4 h-[1.5px] rounded-full transition-all duration-300"
               style={{
                 backgroundColor: colors.brown,
                 transform: menuOpen ? "rotate(45deg) translateY(5px)" : "none",
@@ -140,10 +145,10 @@ export function Header() {
               style={{ backgroundColor: colors.brown }}
             />
             <span
-              className={`w-4 h-[1.5px] rounded-full transition-all duration-300`}
+              className="w-4 h-[1.5px] rounded-full transition-all duration-300"
               style={{
                 backgroundColor: colors.brown,
-                transform: menuOpen ? "-rotate-45 -translateY-5px" : "none",
+                transform: menuOpen ? "-rotate-45 translateY(-5px)" : "none",
               }}
             />
           </button>
@@ -190,9 +195,11 @@ export function Header() {
             Instagram
           </a>
 
-          {/* MOBILE BUTTON */}
+          {/* MOBILE WHATSAPP BUTTON */}
           <a
-            href="#contato"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[9px] font-semibold tracking-[0.22em] uppercase px-6 py-3 rounded-full text-center"
             style={{
               backgroundColor: colors.brown,

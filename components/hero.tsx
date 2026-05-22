@@ -66,42 +66,9 @@ export default function Hero() {
 
       {/* FLOATING DOTS */}
       <div className="absolute inset-0 pointer-events-none">
-        <div
-          style={{
-            position: "absolute",
-            top: "18%",
-            left: "12%",
-            width: "6px",
-            height: "6px",
-            borderRadius: "999px",
-            background: colors.sage,
-            opacity: 0.4,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "22%",
-            right: "18%",
-            width: "4px",
-            height: "4px",
-            borderRadius: "999px",
-            background: colors.taupe,
-            opacity: 0.35,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "45%",
-            right: "10%",
-            width: "8px",
-            height: "8px",
-            borderRadius: "999px",
-            background: colors.blush,
-            opacity: 0.25,
-          }}
-        />
+        <div style={{ position: "absolute", top: "18%", left: "12%", width: "6px", height: "6px", borderRadius: "999px", background: colors.sage, opacity: 0.4 }} />
+        <div style={{ position: "absolute", bottom: "22%", right: "18%", width: "4px", height: "4px", borderRadius: "999px", background: colors.taupe, opacity: 0.35 }} />
+        <div style={{ position: "absolute", top: "45%", right: "10%", width: "8px", height: "8px", borderRadius: "999px", background: colors.blush, opacity: 0.25 }} />
       </div>
 
       {/* BLUSH + SAGE GLOW */}
@@ -135,19 +102,6 @@ export default function Hero() {
           {/* LEFT */}
           <div className="w-full md:w-[52%] flex flex-col items-start">
 
-            {/* BRAND LABEL */}
-            <div
-              data-animate
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "8px",
-              }}
-            >
-           
-            </div>
-
             <p
               data-animate
               style={{
@@ -163,31 +117,15 @@ export default function Hero() {
             </p>
 
             <h1 data-animate style={{ lineHeight: 0.9, marginTop: "6px" }}>
-              <span
-                style={{
-                  fontFamily: "'Italiana', serif",
-                  fontSize: "clamp(52px, 7.5vw, 96px)",
-                  color: colors.brown,
-                  display: "block",
-                }}
-              >
+              <span style={{ fontFamily: "'Italiana', serif", fontSize: "clamp(52px, 7.5vw, 96px)", color: colors.brown, display: "block" }}>
                 Ariane
               </span>
 
-              <span
-                style={{
-                  fontFamily: "'Italiana', serif",
-                  fontSize: "clamp(48px, 7vw, 90px)",
-                  color: colors.taupe,
-                  display: "block",
-                  marginTop: "-8px",
-                }}
-              >
+              <span style={{ fontFamily: "'Italiana', serif", fontSize: "clamp(48px, 7vw, 90px)", color: colors.taupe, display: "block", marginTop: "-8px" }}>
                 Pagnoncelli
               </span>
             </h1>
 
-            {/* ACCENT LINE */}
             <div
               data-animate
               style={{
@@ -231,7 +169,11 @@ export default function Hero() {
               data-animate
               className="flex flex-col sm:flex-row gap-4 mt-7 w-full items-center md:items-start justify-center md:justify-start"
             >
-              <button
+              {/* WHATSAPP BUTTON */}
+              <a
+                href="https://wa.me/555521972646121?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es!"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   w-full sm:w-auto
                   max-w-[320px]
@@ -239,6 +181,9 @@ export default function Hero() {
                   hover:scale-[1.04]
                   hover:shadow-2xl
                   active:scale-95
+                  inline-flex
+                  items-center
+                  justify-center
                 "
                 style={{
                   background: `linear-gradient(135deg, ${colors.brown}, #5f554e)`,
@@ -248,41 +193,46 @@ export default function Hero() {
                   fontFamily: "'Jost', sans-serif",
                   letterSpacing: "0.08em",
                   boxShadow: "0 18px 40px rgba(123,110,102,0.25)",
+                  textDecoration: "none",
                 }}
               >
                 Agendar consulta
-              </button>
+              </a>
 
-              <button
-                className="
-                  w-full sm:w-auto
-                  max-w-[320px]
-                  transition-all duration-300
-                  hover:scale-[1.03]
-                "
-                style={{
-                  border: `1px solid ${colors.taupe}`,
-                  color: colors.brown,
-                  padding: "14px 32px",
-                  borderRadius: "999px",
-                  background: "rgba(255,255,255,0.25)",
-                  backdropFilter: "blur(10px)",
-                  fontFamily: "'Jost', sans-serif",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor =
-                    colors.sage;
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 10px 30px rgba(168,176,163,0.25)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor =
-                    colors.taupe;
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                }}
-              >
-                Saiba mais
-              </button>
+<button
+  className="
+    w-full sm:w-auto
+    max-w-[320px]
+    transition-all duration-300
+    hover:scale-[1.03]
+  "
+  style={{
+    border: `1px solid ${colors.taupe}`,
+    color: colors.brown,
+    padding: "14px 32px",
+    borderRadius: "999px",
+    background: "rgba(255,255,255,0.25)",
+    backdropFilter: "blur(10px)",
+    fontFamily: "'Jost', sans-serif",
+  }}
+  onClick={() => {
+    document.getElementById("sobre")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  onMouseEnter={(e) => {
+    (e.currentTarget as HTMLElement).style.borderColor = colors.sage;
+    (e.currentTarget as HTMLElement).style.boxShadow =
+      "0 10px 30px rgba(168,176,163,0.25)";
+  }}
+  onMouseLeave={(e) => {
+    (e.currentTarget as HTMLElement).style.borderColor = colors.taupe;
+    (e.currentTarget as HTMLElement).style.boxShadow = "none";
+  }}
+>
+  Saiba mais
+</button>
             </div>
           </div>
 
@@ -343,7 +293,6 @@ export default function Hero() {
                 padding: "28px 26px 34px 26px",
               }}
             >
-              {/* DEPTH LAYER */}
               <div
                 style={{
                   position: "absolute",
@@ -355,7 +304,6 @@ export default function Hero() {
                 }}
               />
 
-              {/* SAGE SIDE LINE */}
               <div
                 style={{
                   position: "absolute",
