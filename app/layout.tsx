@@ -45,6 +45,12 @@ export const metadata: Metadata = {
   title: 'Dra. Ariane Pagnoncelli | Endocrinologista',
   description:
     'Endocrinologista especializada em saúde metabólica, tireoide, diabetes e equilíbrio hormonal.',
+
+  icons: {
+    icon: '/logo.png', // principal favicon
+    shortcut: '/logo.png', // fallback antigo
+    apple: '/logo.png', // ícone para iPhone/iPad
+  },
 }
 
 export default function RootLayout({
@@ -64,6 +70,7 @@ export default function RootLayout({
         bg-[#F4F1EC]
       `}
     >
+      <head />
       <body className="font-sans antialiased font-light">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
