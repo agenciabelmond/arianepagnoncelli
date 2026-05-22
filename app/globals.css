@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Dra. Ariane Brand Colors */
+  --offwhite: #F4F1EC;
+  --bege: #DDD3CB;
+  --greige: #CFC7C0;
+  --taupe: #B39B8F;
+  --brown: #7B6E66;
+  --sage: #A8B0A3;
+  --blush: #D8B8B1;
+  --ink: #2E2823;
+
+  /* Semantic tokens */
+  --background: var(--offwhite);
+  --foreground: var(--ink);
+  --card: var(--offwhite);
+  --card-foreground: var(--ink);
+  --popover: var(--offwhite);
+  --popover-foreground: var(--ink);
+  --primary: var(--sage);
+  --primary-foreground: var(--offwhite);
+  --secondary: var(--bege);
+  --secondary-foreground: var(--ink);
+  --muted: var(--greige);
+  --muted-foreground: var(--brown);
+  --accent: var(--blush);
+  --accent-foreground: var(--ink);
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: var(--greige);
+  --input: var(--greige);
+  --ring: var(--taupe);
+  --radius: 9999px;
+}
+
+@theme inline {
+  --font-sans: 'Jost', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-display: 'Italiana', serif;
+  --font-roman: 'Cinzel', serif;
+  --font-mono: 'DM Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Brand colors */
+  --color-offwhite: var(--offwhite);
+  --color-bege: var(--bege);
+  --color-greige: var(--greige);
+  --color-taupe: var(--taupe);
+  --color-brown: var(--brown);
+  --color-sage: var(--sage);
+  --color-blush: var(--blush);
+  --color-ink: var(--ink);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+ 
+/* Animação spin reverso (Tailwind só tem spin, não reverse) */
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+ 
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 30s linear infinite;
+  }
+  .animate-spin-slow-reverse {
+    animation: spin-reverse 30s linear infinite;
+  }
+}
