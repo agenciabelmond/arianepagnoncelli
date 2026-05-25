@@ -1,4 +1,11 @@
-import { Activity, Heart, Scale, Sparkles, Thermometer, Zap } from "lucide-react"
+import {
+  Activity,
+  Heart,
+  Scale,
+  Sparkles,
+  Thermometer,
+  Zap,
+} from "lucide-react"
 
 // ─── PALLETA OFF-WHITE QUENTE ───────────────────────────────
 // #F4F1EC  Off-white quente
@@ -18,6 +25,7 @@ const specialties = [
     areas: ["Hipotireoidismo", "Hipertireoidismo", "Nódulos", "Hashimoto"],
     accent: "#D8B8B1",
   },
+
   {
     icon: Activity,
     title: "Diabetes",
@@ -26,6 +34,7 @@ const specialties = [
     areas: ["Tipo 1", "Tipo 2", "Pré-diabetes", "Gestacional"],
     accent: "#A8B0A3",
   },
+
   {
     icon: Scale,
     title: "Obesidade",
@@ -34,14 +43,23 @@ const specialties = [
     areas: ["Sobrepeso", "Obesidade", "Síndrome Metabólica", "Dislipidemias"],
     accent: "#B39B8F",
   },
+
+  // ─── CARD EM DESTAQUE ─────────────────────────────────────
   {
     icon: Sparkles,
-    title: "Saúde Hormonal Feminina",
+    title: "Menopausa & Saúde Hormonal",
     description:
-      "Cuidado especializado para distúrbios hormonais femininos, síndrome dos ovários policísticos e menopausa.",
-    areas: ["SOP", "Menopausa", "Irregularidade Menstrual", "Reposição Hormonal"],
+      "Cuidado especializado para menopausa, climatério e distúrbios hormonais femininos, com foco em equilíbrio hormonal, bem-estar e qualidade de vida.",
+    areas: [
+      "Menopausa",
+      "Climatério",
+      "Reposição Hormonal",
+      "SOP",
+    ],
     accent: "#D8B8B1",
+    featured: true,
   },
+
   {
     icon: Heart,
     title: "Metabolismo Ósseo",
@@ -50,6 +68,7 @@ const specialties = [
     areas: ["Osteoporose", "Vitamina D", "Cálcio", "Paratireoide"],
     accent: "#A8B0A3",
   },
+
   {
     icon: Zap,
     title: "Adrenais e Hipófise",
@@ -67,7 +86,8 @@ export function Specialties() {
       className="relative overflow-hidden py-20 md:py-28"
       style={{
         background: `
-          linear-gradient(150deg,
+          linear-gradient(
+            150deg,
             #F4F1EC 0%,
             #DDD3CB 35%,
             #CFC7C0 65%,
@@ -86,8 +106,9 @@ export function Specialties() {
         }}
       />
 
-      {/* Ambient glows */}
+      {/* Ambient glow */}
       <div className="absolute top-[-100px] right-[-80px] w-[420px] h-[420px] rounded-full blur-[160px] bg-[#B39B8F]/25 pointer-events-none" />
+
       <div className="absolute bottom-[-60px] left-[-60px] w-[280px] h-[280px] rounded-full blur-[120px] bg-[#A8B0A3]/20 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-12">
@@ -137,22 +158,68 @@ export function Specialties() {
 
         {/* CARDS */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
           {specialties.map((s, i) => (
             <div
               key={s.title}
-              className="group relative flex flex-col p-7 rounded-[3px] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_12px_30px_rgba(47,36,31,0.10)]"
+              className={`
+                group
+                relative
+                flex
+                flex-col
+                p-7
+                rounded-[3px]
+                transition-all
+                duration-300
+                hover:-translate-y-[3px]
+                hover:shadow-[0_12px_30px_rgba(47,36,31,0.10)]
+
+                ${s.featured ? "md:scale-[1.02]" : ""}
+              `}
               style={{
-                background: "rgba(244,241,236,0.78)",
-                border: "1px solid rgba(207,199,192,0.75)",
+                background: s.featured
+                  ? "linear-gradient(180deg, rgba(244,241,236,0.96), rgba(221,211,203,0.92))"
+                  : "rgba(244,241,236,0.78)",
+
+                border: s.featured
+                  ? "1px solid rgba(216,184,177,0.75)"
+                  : "1px solid rgba(207,199,192,0.75)",
+
                 backdropFilter: "blur(8px)",
+
+                boxShadow: s.featured
+                  ? "0 10px 35px rgba(179,155,143,0.12)"
+                  : undefined,
               }}
             >
+
+              {/* TOP LINE */}
               <div
                 className="absolute top-0 left-6 right-6 h-[2px] rounded-b-full transition-all duration-300 group-hover:left-4 group-hover:right-4"
-                style={{ background: s.accent, opacity: 0.9 }}
+                style={{
+                  background: s.accent,
+                  opacity: 0.9,
+                }}
               />
 
+              {/* FEATURED BADGE */}
+              {s.featured && (
+                <div
+                  className="absolute top-5 right-5 px-3 py-1 rounded-full text-[8px] tracking-[0.25em] uppercase"
+                  style={{
+                    background: "rgba(216,184,177,0.16)",
+                    border: "1px solid rgba(216,184,177,0.35)",
+                    color: "#B39B8F",
+                    fontFamily: "var(--font-dm-mono, monospace)",
+                  }}
+                >
+                  Destaque
+                </div>
+              )}
+
+              {/* ICON */}
               <div className="flex items-center justify-between mb-6">
+
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center"
                   style={{
@@ -171,8 +238,18 @@ export function Specialties() {
                 </span>
               </div>
 
+              {/* TITLE */}
               <h3
-                className="text-[0.9rem] uppercase mb-3 tracking-[0.14em]"
+                className={`
+                  uppercase
+                  mb-3
+                  tracking-[0.14em]
+
+                  ${s.featured
+                    ? "text-[1rem]"
+                    : "text-[0.9rem]"
+                  }
+                `}
                 style={{
                   fontFamily: "var(--font-cinzel, serif)",
                   color: "#7B6E66",
@@ -181,8 +258,18 @@ export function Specialties() {
                 {s.title}
               </h3>
 
+              {/* DESCRIPTION */}
               <p
-                className="text-[13.5px] leading-[1.75] mb-6 flex-1"
+                className={`
+                  leading-[1.75]
+                  mb-6
+                  flex-1
+
+                  ${s.featured
+                    ? "text-[14px]"
+                    : "text-[13.5px]"
+                  }
+                `}
                 style={{
                   fontFamily: "var(--font-jost, sans-serif)",
                   color: "#7B6E66",
@@ -191,12 +278,19 @@ export function Specialties() {
                 {s.description}
               </p>
 
+              {/* DIVIDER */}
               <div
                 className="mb-4 h-px"
-                style={{ background: "rgba(207,199,192,0.45)" }}
+                style={{
+                  background: s.featured
+                    ? "rgba(216,184,177,0.35)"
+                    : "rgba(207,199,192,0.45)",
+                }}
               />
 
+              {/* TAGS */}
               <div className="flex flex-wrap gap-[6px]">
+
                 {s.areas.map((area) => (
                   <span
                     key={area}
@@ -204,8 +298,14 @@ export function Specialties() {
                     style={{
                       fontFamily: "var(--font-dm-mono, monospace)",
                       color: "#7B6E66",
-                      background: "rgba(221,211,203,0.6)",
-                      border: "1px solid rgba(179,155,143,0.35)",
+
+                      background: s.featured
+                        ? "rgba(216,184,177,0.12)"
+                        : "rgba(221,211,203,0.6)",
+
+                      border: s.featured
+                        ? "1px solid rgba(216,184,177,0.35)"
+                        : "1px solid rgba(179,155,143,0.35)",
                     }}
                   >
                     {area}

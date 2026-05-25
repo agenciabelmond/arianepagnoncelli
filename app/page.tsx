@@ -6,6 +6,7 @@ import { Differentials } from "@/components/differentials"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { Cta } from "@/components/cta"
+import MapaDaSaudeSection  from "@/components/mapasaude"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Specialties />
       <Differentials />
       <Contact />
+      <MapaDaSaudeSection />
       <Cta />
       <Footer />
     </main>
