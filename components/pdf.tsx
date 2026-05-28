@@ -127,9 +127,7 @@ export default function DownloadSection() {
               fontWeight: 400,
             }}
           >
-            Guia do Paciente
-            <br />
-            Mounjaro®
+            Guia do Mounjaro
           </h2>
 
           <p
