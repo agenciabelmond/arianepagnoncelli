@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Clock, HeartHandshake, Microscope, Users } from "lucide-react";
+import { Clock, HeartHandshake, Microscope, Users, Brain } from "lucide-react";
 
 const palette = {
   offWhite: "#F4F1EC",
@@ -17,31 +17,38 @@ const palette = {
 const differentials = [
   {
     icon: HeartHandshake,
-    title: "Atendimento Humanizado",
+    title: "Escuta clínica qualificada",
     description:
-      "Cada consulta é um momento de escuta atenta, onde você se sente acolhido e suas preocupações são levadas a sério.",
+      "Você é ouvido com atenção real. Cada sintoma, dúvida e histórico é considerado com tempo e profundidade.",
     accent: palette.blush,
   },
   {
     icon: Microscope,
-    title: "Medicina Baseada em Evidências",
+    title: "Condutas baseadas em evidências",
     description:
-      "Tratamentos e condutas fundamentados nas mais recentes pesquisas científicas e diretrizes médicas.",
+      "Decisões médicas fundamentadas nas melhores evidências científicas disponíveis e atualizadas constantemente.",
     accent: palette.sage,
   },
   {
     icon: Clock,
-    title: "Consultas sem Pressa",
+    title: "Consultas com tempo adequado",
     description:
-      "Tempo adequado para entender sua história, explicar diagnósticos e esclarecer todas as suas dúvidas.",
+      "Sem pressa. O tempo da consulta permite explicações claras, entendimento do diagnóstico e decisões conscientes.",
     accent: palette.taupe,
   },
   {
     icon: Users,
-    title: "Abordagem Multidisciplinar",
+    title: "Acompanhamento contínuo e personalizado",
     description:
-      "Trabalho integrado com outros profissionais de saúde quando necessário para o melhor resultado do tratamento.",
+      "O cuidado não termina na consulta. Há seguimento estruturado, ajustes terapêuticos e evolução acompanhada ao longo do tempo.",
     accent: palette.blush,
+  },
+  {
+    icon: Brain,
+    title: "Visão integrada da saúde",
+    description:
+      "Quando necessário, integração com outros profissionais para um cuidado mais completo e eficiente.",
+    accent: palette.sage,
   },
 ];
 
@@ -67,13 +74,10 @@ export function Differentials() {
       className="relative overflow-hidden py-20 md:py-28"
       style={{ background: palette.taupe }}
     >
-      {/* Ambient layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#7B6E66]/70 via-transparent to-[#A8B0A3]/40" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,110,102,0.18),transparent_70%)]" />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-12">
-
-        {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <span
@@ -104,24 +108,13 @@ export function Differentials() {
               color: "rgba(244,241,236,0.85)",
             }}
           >
-            Uma prática médica centrada no paciente, onde a excelência técnica
-            encontra o cuidado genuíno.
+            Um modelo de cuidado pensado para quem busca acompanhamento médico
+            com profundidade, clareza e continuidade.
           </p>
         </div>
 
-        {/* ================= MOBILE ================= */}
+        {/* MOBILE */}
         <div className="md:hidden">
-
-          <p
-            className="text-center text-xs mb-4 animate-pulse"
-            style={{
-              fontFamily: "Jost, sans-serif",
-              color: "rgba(244,241,236,0.7)",
-            }}
-          >
-            ← Arraste para o lado →
-          </p>
-
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -140,17 +133,14 @@ export function Differentials() {
                 style={{
                   background: palette.offWhite,
                   border: `1px solid ${palette.greige}`,
-                  backdropFilter: "blur(14px)",
                   boxShadow: `0 18px 40px rgba(123,110,102,0.18)`,
                 }}
               >
-                {/* Accent line */}
                 <div
                   className="absolute top-0 left-6 right-6 h-[2px]"
                   style={{ background: active.accent }}
                 />
 
-                {/* Icon */}
                 <div className="flex items-center justify-between mb-6">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
@@ -164,10 +154,7 @@ export function Differentials() {
 
                   <span
                     className="text-[9px] tracking-[0.25em]"
-                    style={{
-                      color: palette.brown,
-                      fontFamily: "Jost, sans-serif",
-                    }}
+                    style={{ color: palette.brown }}
                   >
                     0{current + 1}
                   </span>
@@ -185,10 +172,7 @@ export function Differentials() {
 
                 <p
                   className="text-[13.5px] leading-[1.75]"
-                  style={{
-                    fontFamily: "Jost, sans-serif",
-                    color: palette.brown,
-                  }}
+                  style={{ color: palette.brown }}
                 >
                   {active.description}
                 </p>
@@ -196,13 +180,12 @@ export function Differentials() {
             </motion.div>
           </AnimatePresence>
 
-          {/* DOTS */}
           <div className="flex justify-center gap-2 mt-6">
             {differentials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-1 rounded-full transition-all duration-300 ${
+                className={`h-1 rounded-full transition-all ${
                   current === i ? "w-8" : "w-2"
                 }`}
                 style={{
@@ -216,11 +199,12 @@ export function Differentials() {
           </div>
         </div>
 
-        {/* ================= DESKTOP ================= */}
+        {/* DESKTOP */}
         <div className="hidden md:grid md:grid-cols-2 gap-6">
-
           {differentials.map((item, i) => {
             const IconComp = item.icon;
+
+            const isLast = i === differentials.length - 1;
 
             return (
               <motion.div
@@ -229,21 +213,20 @@ export function Differentials() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="relative flex flex-col p-8 rounded-[4px]"
+                className={`relative flex flex-col p-8 rounded-[4px] ${
+                  isLast ? "md:col-span-2" : ""
+                }`}
                 style={{
                   background: palette.offWhite,
                   border: `1px solid ${palette.greige}`,
-                  backdropFilter: "blur(14px)",
                   boxShadow: `0 18px 40px rgba(123,110,102,0.18)`,
                 }}
               >
-                {/* Accent line */}
                 <div
                   className="absolute top-0 left-6 right-6 h-[2px]"
                   style={{ background: item.accent }}
                 />
 
-                {/* Icon */}
                 <div className="flex items-center justify-between mb-6">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
@@ -257,10 +240,7 @@ export function Differentials() {
 
                   <span
                     className="text-[9px] tracking-[0.25em]"
-                    style={{
-                      color: palette.brown,
-                      fontFamily: "Jost, sans-serif",
-                    }}
+                    style={{ color: palette.brown }}
                   >
                     0{i + 1}
                   </span>
@@ -278,10 +258,7 @@ export function Differentials() {
 
                 <p
                   className="text-[13.5px] leading-[1.75]"
-                  style={{
-                    fontFamily: "Jost, sans-serif",
-                    color: palette.brown,
-                  }}
+                  style={{ color: palette.brown }}
                 >
                   {item.description}
                 </p>

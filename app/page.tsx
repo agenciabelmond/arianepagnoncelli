@@ -7,6 +7,9 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { Cta } from "@/components/cta"
 import MapaDaSaudeSection  from "@/components/mapasaude"
+import FAQItem  from "@/components/faq"
+import WhatsAppButton from "@/components/whatsapp";
+import DownloadSection from "@/components/pdf";
 
 export default function Home() {
   return (
@@ -16,10 +19,13 @@ export default function Home() {
       <About />
       <Specialties />
       <Differentials />
-      <Contact />
       <MapaDaSaudeSection />
+      <DownloadSection />
+      <Contact />
       <Cta />
+      <FAQItem/>
       <Footer />
+    <WhatsAppButton />
     </main>
   )
 }
