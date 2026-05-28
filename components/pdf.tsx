@@ -23,13 +23,13 @@ export default function DownloadSection() {
 
     setError("");
 
-    // VALIDA CAMPOS
+    // CAMPOS VAZIOS
     if (!name || !email) {
       setError("Por favor, preencha todos os campos.");
       return;
     }
 
-    // VALIDA EMAIL
+    // EMAIL INVÁLIDO
     if (!validateEmail(email)) {
       setError("Digite um endereço de e-mail válido.");
       return;
@@ -67,14 +67,7 @@ export default function DownloadSection() {
 
   return (
     <section
-      className="
-        w-full
-        py-24
-        px-6
-        flex
-        justify-center
-        items-center
-      "
+      className="w-full py-24 px-6 flex justify-center items-center"
       style={{
         background:
           "linear-gradient(180deg, #F6F2EE 0%, #EFE7E1 100%)",
@@ -107,53 +100,56 @@ export default function DownloadSection() {
             backgroundColor: "#CFC7C0",
           }}
         >
-         <p
-  className="
-    uppercase
-    tracking-[0.35em]
-    text-sm
-    mb-5
-  "
-  style={{
-    color: "#7B6E66",
-    fontFamily: "Jost, sans-serif",
-  }}
->
-  Material Exclusivo
-</p>
+          <p
+            className="
+              uppercase
+              tracking-[0.35em]
+              text-sm
+              mb-5
+            "
+            style={{
+              color: "#7B6E66",
+              fontFamily: "Jost, sans-serif",
+            }}
+          >
+            Material Exclusivo
+          </p>
 
-<h2
-  className="
-    text-5xl
-    leading-tight
-    mb-6
-  "
-  style={{
-    color: "#4E433D",
-    fontFamily: "Cinzel, serif",
-    fontWeight: 400,
-  }}
->
-  Guia Mounjaro
-</h2>
+          <h2
+            className="
+              text-5xl
+              leading-tight
+              mb-6
+            "
+            style={{
+              color: "#4E433D",
+              fontFamily: "serif",
+              fontWeight: 400,
+            }}
+          >
+            Guia do Paciente
+            <br />
+            Mounjaro®
+          </h2>
 
-<p
-  className="
-    text-lg
-    leading-8
-    max-w-md
-  "
-  style={{
-    color: "#5E544E",
-    fontFamily: "Jost, sans-serif",
-    fontWeight: 300,
-  }}
->
-  Um caminho de cuidado, leveza e bem-estar.
-  Receba gratuitamente o guia completo com
-  orientações práticas para acompanhar seu
-  tratamento com mais segurança e confiança.
-</p>
+          <p
+            className="
+              text-lg
+              leading-8
+              max-w-md
+            "
+            style={{
+              color: "#5E544E",
+              fontFamily: "Jost, sans-serif",
+              fontWeight: 300,
+            }}
+          >
+            Um caminho de cuidado, leveza e bem-estar.
+            Receba gratuitamente o guia completo com
+            orientações práticas para acompanhar seu
+            tratamento com mais segurança e confiança.
+          </p>
+
           <div
             className="mt-10 h-px w-24"
             style={{
@@ -181,7 +177,7 @@ export default function DownloadSection() {
                 className="text-4xl mb-3"
                 style={{
                   color: "#4E433D",
-                  fontFamily: "Cormorant Garamond, serif",
+                  fontFamily: "serif",
                   fontStyle: "italic",
                 }}
               >
@@ -202,59 +198,51 @@ export default function DownloadSection() {
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-5"
               >
-                {/* INPUT NOME */}
-                <div className="flex flex-col gap-2">
-                  <input
-                    type="text"
-                    placeholder="Seu nome"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="
-                      w-full
-                      rounded-2xl
-                      px-5
-                      py-4
-                      outline-none
-                      transition-all
-                      duration-300
-                      focus:scale-[1.01]
-                    "
-                    style={{
-                      border: "1px solid #D8B8B1",
-                      backgroundColor: "#FFFFFF",
-                      color: "#4E433D",
-                      fontFamily: "Jost, sans-serif",
-                    }}
-                  />
-                </div>
+                {/* NOME */}
+                <input
+                  type="text"
+                  placeholder="Seu nome"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="
+                    w-full
+                    rounded-2xl
+                    px-5
+                    py-4
+                    outline-none
+                    transition-all
+                    duration-300
+                  "
+                  style={{
+                    border: "1px solid #D8B8B1",
+                    backgroundColor: "#FFFFFF",
+                    color: "#4E433D",
+                    fontFamily: "Jost, sans-serif",
+                  }}
+                />
 
-                {/* INPUT EMAIL */}
-                <div className="flex flex-col gap-2">
-                  <input
-                    type="email"
-                    placeholder="Seu e-mail"
-                    value={email}
-                    onChange={(e) =>
-                      setEmail(e.target.value)
-                    }
-                    className="
-                      w-full
-                      rounded-2xl
-                      px-5
-                      py-4
-                      outline-none
-                      transition-all
-                      duration-300
-                      focus:scale-[1.01]
-                    "
-                    style={{
-                      border: "1px solid #D8B8B1",
-                      backgroundColor: "#FFFFFF",
-                      color: "#4E433D",
-                      fontFamily: "Jost, sans-serif",
-                    }}
-                  />
-                </div>
+                {/* EMAIL */}
+                <input
+                  type="email"
+                  placeholder="Seu melhor e-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="
+                    w-full
+                    rounded-2xl
+                    px-5
+                    py-4
+                    outline-none
+                    transition-all
+                    duration-300
+                  "
+                  style={{
+                    border: "1px solid #D8B8B1",
+                    backgroundColor: "#FFFFFF",
+                    color: "#4E433D",
+                    fontFamily: "Jost, sans-serif",
+                  }}
+                />
 
                 {/* ERRO */}
                 {error && (
@@ -264,8 +252,7 @@ export default function DownloadSection() {
                       px-5
                       py-4
                       text-sm
-                      animate-in
-                      fade-in
+                      transition-all
                       duration-300
                     "
                     style={{
@@ -311,7 +298,7 @@ export default function DownloadSection() {
                 className="text-4xl mb-4"
                 style={{
                   color: "#4E433D",
-                  fontFamily: "Cormorant Garamond, serif",
+                  fontFamily: "serif",
                   fontStyle: "italic",
                 }}
               >
