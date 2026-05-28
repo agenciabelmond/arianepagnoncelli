@@ -50,8 +50,8 @@ export default function DownloadSection() {
 
       // DOWNLOAD AUTOMÁTICO
       const link = document.createElement("a");
-      link.href = "/Petrópolis.pdf";
-      link.download = "Petrópolis.pdf";
+      link.href = "/guia.pdf";
+      link.download = "guia.pdf";
       link.click();
 
     } catch (error) {
